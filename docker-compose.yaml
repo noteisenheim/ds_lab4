@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - ./templates/:/app/www/
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+  nginx:
+    image: "nginx:alpine"
+    volumes:
+      - ./nginx.conf:/ets/nginx/nginx.conf
+    depends_on:
+      - app
+    ports:
+      - "80:80"
