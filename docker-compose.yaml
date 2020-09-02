@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    build: .
+    image: noteisenheim/lab4-ds:v2
     volumes:
       - ./www/:/app/www/
       - ./www/media:/app/www/media
